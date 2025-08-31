@@ -19,7 +19,7 @@ const Signup = () => {
  const handleSendOtp = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/register", {
+    const response = await axios.post("https://exclusive-e-com-backend.onrender.com/api/auth/register", {
       name: formData.name,
       email: formData.email,
       password: formData.password,
@@ -40,7 +40,7 @@ const Signup = () => {
 const handleVerifyOtp = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/verify-otp", {
+    const response = await axios.post("https://exclusive-e-com-backend.onrender.com/api/auth/verify-otp", {
       email: formData.email,
       otp: otp,
     });

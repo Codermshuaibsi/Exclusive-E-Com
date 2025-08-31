@@ -38,7 +38,7 @@ export const Home = () => {
         const fetchFeaturedProducts = async () => {
             try {
                 const featuredData = await axios.get(
-                    "http://localhost:5000/api/featured/product/getallproduct"
+                    "https://exclusive-e-com-backend.onrender.com/api/featured/product/getallproduct"
                 );
                 setproducts(featuredData.data);
             } catch (error) {
@@ -53,13 +53,13 @@ export const Home = () => {
         const fetchCategories = async () => {
             try {
                 const { data: categoriesData } = await axios.get(
-                    "http://localhost:5000/api/category/all/category"
+                    "https://exclusive-e-com-backend.onrender.com/api/category/all/category"
                 );
 
                 const categoriesWithSubs = await Promise.all(
                     categoriesData.map(async (cat) => {
                         const { data: subData } = await axios.get(
-                            `http://localhost:5000/api/subcategory/category/${cat._id}`
+                            `https://exclusive-e-com-backend.onrender.com/api/subcategory/category/${cat._id}`
                         );
                         return { ...cat, subcategories: subData };
                     })

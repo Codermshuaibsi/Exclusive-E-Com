@@ -22,7 +22,7 @@ const PDPPage = () => {
   useEffect(() => {
     if (!product && id) {
       axios
-        .get(`http://localhost:5000/api/product/${id}`)
+        .get(`https://exclusive-e-com-backend.onrender.com/api/product/${id}`)
         .then((res) => {
           setProduct(res.data);
           setMainImage(res.data.images?.[0]?.url || "/placeholder.png");

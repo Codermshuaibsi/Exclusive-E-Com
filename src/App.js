@@ -5,6 +5,9 @@ import Login from "./Pages/Login_Page/Login";
 import { Home } from "./Pages/Home_Page/Home";
 import About from "./Pages/About_Page/About";
 import PDPPage from "./Pages/PDP_Page/PDP";
+import ContactPage from "./Pages/Contact_Page/Contact";
+import BlogPage from "./Pages/Blog_Page/Blog";
+import ProductPage from "./Pages/Product_Page/Product";
 
 const SimpleLoader = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +49,9 @@ const SimpleLoader = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/product/:id" element={<PDPPage />} />
       </Routes>
     </div>

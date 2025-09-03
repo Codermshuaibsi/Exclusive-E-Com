@@ -25,35 +25,15 @@ const Navbar = () => {
         {/* Desktop Menu (only visible on lg+) */}
         <div className="hidden lg:flex space-x-6 text-gray-700 font-medium">
           <ul className="flex space-x-6">
-            <li className="hover:underline underline-offset-2 cursor-pointer">
+            <li className="hover:underline hover:text-red-600 hover:font-semibold underline-offset-2 cursor-pointer">
               <Link to="/">Home</Link>
             </li>
 
             {/* Shop with dropdown */}
-            <li className="relative">
-              <button
-                onClick={() => toggleDropdown("shop")}
-                className="flex items-center gap-1 hover:underline underline-offset-2"
-              >
-                Shop <ChevronDown size={16} />
-              </button>
-              {dropdown === "shop" && (
-                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg p-2 w-60 z-50">
-                  <h3 className="font-semibold px-2 py-1">Electronics</h3>
-                  <Link to="/products/mobiles" className="block px-3 py-1 hover:bg-gray-100 rounded">Mobiles</Link>
-                  <Link to="/products/laptops" className="block px-3 py-1 hover:bg-gray-100 rounded">Laptops</Link>
-                  <Link to="/products/accessories" className="block px-3 py-1 hover:bg-gray-100 rounded">Accessories</Link>
-                  <h3 className="font-semibold px-2 py-1 mt-2">Clothing</h3>
-                  <Link to="/products/men" className="block px-3 py-1 hover:bg-gray-100 rounded">Men</Link>
-                  <Link to="/products/women" className="block px-3 py-1 hover:bg-gray-100 rounded">Women</Link>
-                  <Link to="/products/kids" className="block px-3 py-1 hover:bg-gray-100 rounded">Kids</Link>
-                </div>
-              )}
-            </li>
-
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+            <li className="hover:underline hover:text-red-600 hover:font-semibold underline-offset-2 cursor-pointer"><Link to='/products'>Products</Link></li>
+            <li className="hover:underline hover:text-red-600 hover:font-semibold underline-offset-2 cursor-pointer"><Link to="/about">About</Link></li>
+            <li className="hover:underline hover:text-red-600 hover:font-semibold underline-offset-2 cursor-pointer"><Link to="/blog">Blog</Link></li>
+            <li className="hover:underline hover:text-red-600 hover:font-semibold underline-offset-2 cursor-pointer"><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -102,46 +82,19 @@ const Navbar = () => {
       </div>
 
       {/* Mobile / Tablet Menu */}
+      {/* Mobile / Tablet Menu */}
       {mobileMenu && (
         <div className="lg:hidden bg-white border-t shadow-md px-4 py-3 space-y-2 animate-slideDown">
           <ul className="flex flex-col gap-2">
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/" onClick={() => setMobileMenu(false)}>Home</Link></li>
 
-            {/* Mobile dropdown */}
-            <li>
-              <button
-                onClick={() => toggleDropdown("mobileShop")}
-                className="flex justify-between w-full px-2 py-2 bg-gray-50 rounded-md"
-              >
-                Shop
-                <ChevronDown
-                  size={16}
-                  className={`transition-transform duration-300 ${dropdown === "mobileShop" ? "rotate-180" : ""}`}
-                />
-              </button>
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out 
-                  ${dropdown === "mobileShop" ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                <div className="pl-4 mt-1 space-y-1">
-                  <h3 className="font-semibold">Electronics</h3>
-                  <Link to="/products/mobiles" className="block px-2 py-1 hover:bg-gray-100 rounded">Mobiles</Link>
-                  <Link to="/products/laptops" className="block px-2 py-1 hover:bg-gray-100 rounded">Laptops</Link>
-                  <Link to="/products/accessories" className="block px-2 py-1 hover:bg-gray-100 rounded">Accessories</Link>
-                  <h3 className="font-semibold mt-2">Clothing</h3>
-                  <Link to="/products/men" className="block px-2 py-1 hover:bg-gray-100 rounded">Men</Link>
-                  <Link to="/products/women" className="block px-2 py-1 hover:bg-gray-100 rounded">Women</Link>
-                  <Link to="/products/kids" className="block px-2 py-1 hover:bg-gray-100 rounded">Kids</Link>
-                </div>
-              </div>
-            </li>
+            <li><Link to="/products" onClick={() => setMobileMenu(false)}>Products</Link></li>
+            <li><Link to="/about" onClick={() => setMobileMenu(false)}>About</Link></li>
+            <li><Link to="/blog" onClick={() => setMobileMenu(false)}>Blog</Link></li>
+            <li><Link to="/contact" onClick={() => setMobileMenu(false)}>Contact</Link></li>
 
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-
-            {!token && <li><Link to="/signup">Signup</Link></li>}
-            {token && <li><Link to="/logout">Logout</Link></li>}
+            {!token && <li><Link to="/signup" onClick={() => setMobileMenu(false)}>Signup</Link></li>}
+            {token && <li><Link to="/logout" onClick={() => setMobileMenu(false)}>Logout</Link></li>}
           </ul>
 
           {/* Mobile Search */}
@@ -151,7 +104,8 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </nav>
+
+    </nav >
   );
 };
 
